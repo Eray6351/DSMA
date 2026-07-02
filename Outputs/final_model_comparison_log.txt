@@ -1,0 +1,168 @@
+2026-06-27 15:23:23 | 01_prepare_dataset.R started.
+2026-06-27 15:23:24 | Using existing satisfied column.
+2026-06-27 15:23:24 | Rows in reviews_final.csv:  884562
+2026-06-27 15:23:24 | Rows after weather merge:  884562
+2026-06-27 15:23:24 | Main weather specification uses PRCP, TMAX, and TMIN only.
+2026-06-27 15:23:24 | SNOW, SNWD, and TOBS are kept if available but are not used in the main model feature set.
+2026-06-27 15:23:24 | stars is kept for target/prior construction but must not be used as a predictor.
+2026-06-27 15:23:28 | Saved prepared dataset to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/prepared_dataset.rds
+2026-06-27 15:23:28 | 01_prepare_dataset.R completed.
+2026-06-27 15:23:50 | 02_feature_engineering.R started.
+2026-06-27 15:23:51 | Available columns:  review_date, review_id, business_id, stars, latitude, longitude, attributes, categories, satisfied, row_id, PRCP, SNOW, SNWD, TMAX, TMIN, TOBS
+2026-06-27 15:23:51 | WARNING: No text/review_text column found. Text-based proxies cannot be created.
+2026-06-27 15:23:51 | WARNING: Food Quality cannot be directly measured without review text.
+2026-06-27 15:23:51 | Extracting structured Yelp attributes from attributes column.
+2026-06-27 15:24:45 |    attr_price_range :  680835  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_noise_score :  437615  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_outdoor_seating :  435010  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_has_tv :  432367  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_alcohol_present :  884562  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_wifi_available :  884562  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_takeout :  478981  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_delivery :  446773  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_caters :  419744  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_good_for_kids :  498787  non-NA values extracted.
+2026-06-27 15:24:45 |    attr_bike_parking :  589823  non-NA values extracted.
+2026-06-27 15:25:05 | Created category controls:  Food, Nightlife, Bars, American (New), Breakfast & Brunch, American (Traditional), Sandwiches, Italian, Coffee & Tea, Pizza, Shopping, Event Planning & Services, Beauty & Spas, Chinese, Seafood
+2026-06-27 15:25:10 | Final model rows:  884562
+2026-06-27 15:25:10 | Base features:  price_score, ambience_score, service_score, attr_price_range, attr_noise_score, attr_outdoor_seating, attr_has_tv, attr_alcohol_present, attr_wifi_available, attr_takeout, attr_delivery, attr_caters, attr_good_for_kids, attr_bike_parking, cat_food, cat_nightlife, cat_bars, cat_american_new, cat_breakfast_and_brunch, cat_american_traditional, cat_sandwiches, cat_italian, cat_coffee_and_tea, cat_pizza, cat_shopping, cat_event_planning_and_services, cat_beauty_and_spas, cat_chinese, cat_seafood, prior_business_avg_stars, business_review_count_before
+2026-06-27 15:25:10 | Weather features:  price_score, ambience_score, service_score, attr_price_range, attr_noise_score, attr_outdoor_seating, attr_has_tv, attr_alcohol_present, attr_wifi_available, attr_takeout, attr_delivery, attr_caters, attr_good_for_kids, attr_bike_parking, cat_food, cat_nightlife, cat_bars, cat_american_new, cat_breakfast_and_brunch, cat_american_traditional, cat_sandwiches, cat_italian, cat_coffee_and_tea, cat_pizza, cat_shopping, cat_event_planning_and_services, cat_beauty_and_spas, cat_chinese, cat_seafood, prior_business_avg_stars, business_review_count_before, PRCP, TMAX, TMIN
+2026-06-27 15:25:10 | Saved final model dataset to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_dataset.rds
+2026-06-27 15:25:10 | Saved feature dictionary to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_feature_dictionary.csv
+2026-06-27 15:25:10 | 02_feature_engineering.R completed.
+2026-06-27 15:28:34 | 04_run_model_comparison.R started.
+2026-06-27 15:28:38 | FAST_MODE:  FALSE
+2026-06-27 15:28:38 | Sample type:  normal stratified sample
+2026-06-27 15:28:38 | Total final model rows before sampling:  884562
+2026-06-27 15:28:38 | Train rows before sampling:  707649
+2026-06-27 15:28:38 | Test rows before sampling:  176913
+2026-06-27 15:28:38 | Sampled train rows used:  50000
+2026-06-27 15:28:38 | Sampled test rows used:  10000
+2026-06-27 15:28:38 | Base feature count:  31
+2026-06-27 15:28:38 | Weather feature count:  34
+2026-06-27 15:28:38 | Full class distribution:     satisfied   rows     share |        <int>  <int>     <num> | 1:         0 294519 0.3329546 | 2:         1 590043 0.6670454
+2026-06-27 15:28:38 | Sampled train class distribution:     satisfied  rows   share |        <int> <int>   <num> | 1:         0 16624 0.33248 | 2:         1 33376 0.66752
+2026-06-27 15:28:38 | Sampled test class distribution:     satisfied  rows  share |        <int> <int>  <num> | 1:         0  3349 0.3349 | 2:         1  6651 0.6651
+2026-06-27 15:28:38 | Running feature set:  Without Weather
+2026-06-27 15:28:38 | Finished:  Majority Baseline  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Predicts the training positive-class share for every test row.
+2026-06-27 15:28:39 | Finished:  Logistic Regression  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from glm binomial.
+2026-06-27 15:28:41 | Finished:  Naive Bayes  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from e1071::naiveBayes.
+2026-06-27 15:28:44 | Finished:  Decision Tree  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from rpart.
+2026-06-27 15:28:48 | Finished:  Bagging  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Bagging implemented as tree ensemble with mtry = all features.
+2026-06-27 15:28:49 | Finished:  Random Forest  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from ranger random forest.
+2026-06-27 15:28:57 | Finished:  KNN  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  k = 15; probability is neighbor vote share.
+2026-06-27 15:29:01 | Finished:  Neural Network  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Small feed-forward neural network from nnet.
+2026-06-27 15:29:01 | Running feature set:  With Weather
+2026-06-27 15:29:02 | Finished:  Majority Baseline  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Predicts the training positive-class share for every test row.
+2026-06-27 15:29:02 | Finished:  Logistic Regression  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from glm binomial.
+2026-06-27 15:29:04 | Finished:  Naive Bayes  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from e1071::naiveBayes.
+2026-06-27 15:29:07 | Finished:  Decision Tree  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from rpart.
+2026-06-27 15:29:12 | Finished:  Bagging  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Bagging implemented as tree ensemble with mtry = all features.
+2026-06-27 15:29:13 | Finished:  Random Forest  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from ranger random forest.
+2026-06-27 15:29:21 | Finished:  KNN  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  k = 15; probability is neighbor vote share.
+2026-06-27 15:29:26 | Finished:  Neural Network  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Small feed-forward neural network from nnet.
+2026-06-27 15:29:27 | Saved metrics Excel file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_metrics.xlsx
+2026-06-27 15:29:27 | Saved metrics CSV file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_metrics.csv
+2026-06-27 15:29:27 | Saved failed/skipped model file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_failures.csv
+2026-06-27 15:29:27 | Successful model runs:  16
+2026-06-27 15:29:27 | Failed model runs:  0
+2026-06-27 15:29:27 | 04_run_model_comparison.R completed.
+2026-06-27 15:29:57 | 05_create_plots.R started.
+2026-06-27 15:29:58 | Saved ROC-AUC plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_plot_roc_auc.png
+2026-06-27 15:29:58 | Saved Balanced Accuracy plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_plot_balanced_accuracy.png
+2026-06-27 15:29:58 | 05_create_plots.R completed.
+2026-06-27 15:32:56 | 08_logistic_regression_coefficients.R started.
+2026-06-27 15:33:01 | Fitting Logistic Regression:  Without Weather  ( 31  features)
+2026-06-27 15:33:01 | Done:  Without Weather
+2026-06-27 15:33:01 | Fitting Logistic Regression:  With Weather  ( 34  features)
+2026-06-27 15:33:01 | Done:  With Weather
+2026-06-27 15:33:01 | Saved long-format coefficients to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/logistic_regression_coefficients_long.csv
+2026-06-27 15:33:01 | Saved wide-format coefficients to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/logistic_regression_coefficients_wide.csv
+2026-06-27 15:33:01 | Saved Excel workbook to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/logistic_regression_coefficients.xlsx
+2026-06-27 15:33:01 | --- Without Weather ---
+2026-06-27 15:33:01 | Features (excl. intercept):  30
+2026-06-27 15:33:01 | Significant at p < 0.05:    12
+2026-06-27 15:33:01 | --- With Weather ---
+2026-06-27 15:33:01 | Features (excl. intercept):  33
+2026-06-27 15:33:01 | Weather coefficients (PRCP, TMAX, TMIN):
+2026-06-27 15:33:01 |    TMAX : coef =  -0.0048 , OR =  0.9952 , p =  0.2104   
+2026-06-27 15:33:01 |    TMIN : coef =  0.0044 , OR =  1.0044 , p =  0.2867   
+2026-06-27 15:33:01 |    PRCP : coef =  0.0005 , OR =  1.0005 , p =  0.7168   
+2026-06-27 15:33:01 | 08_logistic_regression_coefficients.R completed.
+2026-06-27 15:38:45 | 06_plot_star_distribution.R started.
+2026-06-27 15:38:51 | Saved star distribution plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_star_distribution.png
+2026-06-27 15:38:51 | 06_plot_star_distribution.R completed.
+2026-06-27 15:38:51 | 07_plot_seasonal_weather.R started.
+2026-06-27 15:38:52 | Monthly weather summary (avg monthly totals across all years in dataset):
+2026-06-27 15:38:52 |     month_label  avg_tmax    avg_tmin  avg_prcp n_years |          <fctr>     <num>       <num>     <num>   <int> |  1:         Jan  4.617737 -3.87058162  82.05285      11 |  2:         Feb  6.792747 -2.64790379  85.19491      11 |  3:         Mar 11.394238  1.17537146 103.51517      11 |  4:         Apr 18.526157  6.88362121  89.81769      11 |  5:         May 23.747898 12.88894917 105.80579      11 |  6:         Jun 28.647030 17.83110101 110.66951      11 |  7:         Jul 31.358201 20.98871457 124.15115      11 |  8:         Aug 29.734321 19.69458944 130.43468      11 |  9:         Sep 26.261116 16.32588889 116.38147      11 | 10:         Oct 19.358275  9.43228250 100.99738      11 | 11:         Nov 13.216030  3.68153608  70.23386      11 | 12:         Dec  8.152097 -0.05010215 118.94672      10
+2026-06-27 15:38:53 | Saved seasonal weather plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_seasonal_weather.png
+2026-06-27 15:38:53 | 07_plot_seasonal_weather.R completed.
+2026-06-27 16:36:56 | 09_bivariate_descriptive_plots.R started.
+2026-06-27 16:36:59 | Creating Plot A: satisfaction rate by precipitation category.
+2026-06-27 16:37:00 | Saved Plot A to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_precipitation.png
+2026-06-27 16:37:00 | Creating Plot B: satisfaction rate by temperature quartile.
+2026-06-27 16:37:01 | Saved Plot B to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_temperature.png
+2026-06-27 16:37:01 | Creating Plot C: satisfaction rate by price range.
+2026-06-27 16:37:04 | Saved Plot C to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_price.png
+2026-06-27 16:37:04 | Creating Plot D: satisfaction rate by restaurant category.
+2026-06-27 16:37:21 | Saved Plot D to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_category.png
+2026-06-27 16:37:21 | Creating Plot E: review volume over time.
+2026-06-27 16:37:22 | Saved Plot E to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_review_volume_over_time.png
+2026-06-27 16:37:22 | 09_bivariate_descriptive_plots.R completed.
+2026-06-27 16:43:25 | 09_bivariate_descriptive_plots.R started.
+2026-06-27 16:43:28 | Creating Plot A: satisfaction rate by precipitation category.
+2026-06-27 16:43:29 | Saved Plot A to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_precipitation.png
+2026-06-27 16:43:29 | Creating Plot B: satisfaction rate by temperature quartile.
+2026-06-27 16:43:29 | Saved Plot B to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_temperature.png
+2026-06-27 16:43:29 | Creating Plot C: satisfaction rate by price range.
+2026-06-27 16:43:29 | Saved Plot C to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_price.png
+2026-06-27 16:43:29 | Creating Plot D: satisfaction rate by restaurant category.
+2026-06-27 16:43:49 | Saved Plot D to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_satisfaction_by_category.png
+2026-06-27 16:43:49 | Creating Plot E: review volume over time.
+2026-06-27 16:43:49 | Saved Plot E to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_review_volume_over_time.png
+2026-06-27 16:43:49 | 09_bivariate_descriptive_plots.R completed.
+2026-06-27 16:43:49 | Creating combined 2x2 grid plot.
+2026-06-27 16:43:53 | Saved combined 2x2 grid to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/descriptive_bivariate_grid.png
+2026-06-28 12:56:37 | 04_run_model_comparison.R started.
+2026-06-28 12:56:42 | FAST_MODE:  FALSE
+2026-06-28 12:56:42 | Sample type:  normal stratified sample
+2026-06-28 12:56:42 | Total final model rows before sampling:  884562
+2026-06-28 12:56:42 | Train rows before sampling:  707649
+2026-06-28 12:56:42 | Test rows before sampling:  176913
+2026-06-28 12:56:42 | Sampled train rows used:  50000
+2026-06-28 12:56:42 | Sampled test rows used:  10000
+2026-06-28 12:56:42 | Base feature count:  31
+2026-06-28 12:56:42 | Weather feature count:  34
+2026-06-28 12:56:42 | Full class distribution:     satisfied   rows     share |        <int>  <int>     <num> | 1:         0 294519 0.3329546 | 2:         1 590043 0.6670454
+2026-06-28 12:56:42 | Sampled train class distribution:     satisfied  rows   share |        <int> <int>   <num> | 1:         0 16624 0.33248 | 2:         1 33376 0.66752
+2026-06-28 12:56:42 | Sampled test class distribution:     satisfied  rows  share |        <int> <int>  <num> | 1:         0  3349 0.3349 | 2:         1  6651 0.6651
+2026-06-28 12:56:42 | Running feature set:  Without Weather
+2026-06-28 12:56:43 | Finished:  Majority Baseline  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Predicts the training positive-class share for every test row.
+2026-06-28 12:56:45 | Finished:  Logistic Regression  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from glm binomial.
+2026-06-28 12:56:47 | Finished:  Naive Bayes  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from e1071::naiveBayes.
+2026-06-28 12:56:50 | Finished:  Decision Tree  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from rpart.
+2026-06-28 12:56:54 | Finished:  Bagging  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Bagging implemented as tree ensemble with mtry = all features.
+2026-06-28 12:56:55 | Finished:  Random Forest  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from ranger random forest.
+2026-06-28 12:57:03 | Finished:  KNN  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  k = 15; probability is neighbor vote share.
+2026-06-28 13:08:11 | Finished:  SVM  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from linear SVM.
+2026-06-28 13:08:16 | Finished:  Neural Network  |  Without Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Small feed-forward neural network from nnet.
+2026-06-28 13:08:16 | Running feature set:  With Weather
+2026-06-28 13:08:16 | Finished:  Majority Baseline  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Predicts the training positive-class share for every test row.
+2026-06-28 13:08:19 | Finished:  Logistic Regression  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from glm binomial.
+2026-06-28 13:08:21 | Finished:  Naive Bayes  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from e1071::naiveBayes.
+2026-06-28 13:08:25 | Finished:  Decision Tree  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from rpart.
+2026-06-28 13:08:30 | Finished:  Bagging  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Bagging implemented as tree ensemble with mtry = all features.
+2026-06-28 13:08:32 | Finished:  Random Forest  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from ranger random forest.
+2026-06-28 13:08:42 | Finished:  KNN  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  k = 15; probability is neighbor vote share.
+2026-06-28 13:29:36 | Finished:  SVM  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Probability predictions from linear SVM.
+2026-06-28 13:29:42 | Finished:  Neural Network  |  With Weather  | sample_type:  normal stratified sample  | status:  success  | notes:  Small feed-forward neural network from nnet.
+2026-06-28 13:29:43 | Saved metrics Excel file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_metrics.xlsx
+2026-06-28 13:29:43 | Saved metrics CSV file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_metrics.csv
+2026-06-28 13:29:43 | Saved failed/skipped model file to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_failures.csv
+2026-06-28 13:29:43 | Successful model runs:  18
+2026-06-28 13:29:43 | Failed model runs:  0
+2026-06-28 13:29:43 | 04_run_model_comparison.R completed.
+2026-06-28 15:39:31 | 05_create_plots.R started.
+2026-06-28 15:39:36 | Saved ROC-AUC plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_plot_roc_auc.png
+2026-06-28 15:39:36 | Saved Balanced Accuracy plot to:  /Users/eliasroehrich/Library/CloudStorage/OneDrive-JohannWolfgangGoetheUniversität/Master/2nd Semester/DSMA/Term paper/outputs/final_model_comparison/final_model_comparison_plot_balanced_accuracy.png
+2026-06-28 15:39:36 | 05_create_plots.R completed.

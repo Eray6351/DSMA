@@ -1,0 +1,19 @@
+model_name,feature_set,sample_type,train_rows_used,test_rows_used,Accuracy,Sensitivity,Specificity,Balanced_Accuracy,ROC_AUC,runtime_seconds,status,notes
+Majority Baseline,Without Weather,normal stratified sample,50000,10000,0.6651,1,0,0.5,0.5,0.322481155395508,success,Predicts the training positive-class share for every test row.
+Logistic Regression,Without Weather,normal stratified sample,50000,10000,0.7178,0.923921214854909,0.308450283666766,0.616185749260838,0.719375789899337,2.0678927898407,success,Probability predictions from glm binomial.
+Naive Bayes,Without Weather,normal stratified sample,50000,10000,0.6792,0.801683957299654,0.435951030158256,0.618817493728955,0.650568803843407,1.90364503860474,success,Probability predictions from e1071::naiveBayes.
+Decision Tree,Without Weather,normal stratified sample,50000,10000,0.7189,0.898962562020749,0.361301881158555,0.630132221589652,0.664741389802614,3.21158194541931,success,Probability predictions from rpart.
+Bagging,Without Weather,normal stratified sample,50000,10000,0.7089,0.890091715531499,0.349059420722604,0.619575568127051,0.701867236617577,3.86657214164734,success,Bagging implemented as tree ensemble with mtry = all features.
+Random Forest,Without Weather,normal stratified sample,50000,10000,0.7111,0.900015035333033,0.335921170498656,0.617968102915845,0.709047158104318,1.57864499092102,success,Probability predictions from ranger random forest.
+KNN,Without Weather,normal stratified sample,50000,10000,0.6926,0.89730867538716,0.286055538966856,0.591682107177008,0.668178730018529,7.43458580970764,success,k = 15; probability is neighbor vote share.
+SVM,Without Weather,normal stratified sample,50000,10000,0.7185,0.925875808149151,0.306658704090773,0.616267256119962,0.717617881567817,668.244459867477,success,Probability predictions from linear SVM.
+Neural Network,Without Weather,normal stratified sample,50000,10000,0.7135,0.905427755224778,0.332338011346671,0.618882883285725,0.715028877132685,4.86087799072266,success,Small feed-forward neural network from nnet.
+Majority Baseline,With Weather,normal stratified sample,50000,10000,0.6651,1,0,0.5,0.5,0.00490093231201172,success,Predicts the training positive-class share for every test row.
+Logistic Regression,With Weather,normal stratified sample,50000,10000,0.7185,0.924221921515562,0.30994326664676,0.617082594081161,0.719509442292402,2.55958890914917,success,Probability predictions from glm binomial.
+Naive Bayes,With Weather,normal stratified sample,50000,10000,0.678,0.799579010675086,0.436548223350254,0.61806361701267,0.649686976398121,2.0238208770752,success,Probability predictions from e1071::naiveBayes.
+Decision Tree,With Weather,normal stratified sample,50000,10000,0.7173,0.916102841677943,0.32248432367871,0.619293582678327,0.664421041582685,3.62708306312561,success,Probability predictions from rpart.
+Bagging,With Weather,normal stratified sample,50000,10000,0.7125,0.899263268681401,0.341594505822634,0.620428887252017,0.704287211405448,5.79262709617615,success,Bagging implemented as tree ensemble with mtry = all features.
+Random Forest,With Weather,normal stratified sample,50000,10000,0.7163,0.907983761840325,0.335622573902658,0.621803167871491,0.71186880839127,1.93289589881897,success,Probability predictions from ranger random forest.
+KNN,With Weather,normal stratified sample,50000,10000,0.6885,0.895354082092918,0.277694834278889,0.586524458185904,0.658480334130085,9.2121319770813,success,k = 15; probability is neighbor vote share.
+SVM,With Weather,normal stratified sample,50000,10000,0.7188,0.926176514809803,0.306957300686772,0.616566907748288,0.717699545559417,1253.99072313309,success,Probability predictions from linear SVM.
+Neural Network,With Weather,normal stratified sample,50000,10000,0.7166,0.903473161930537,0.345476261570618,0.624474711750577,0.714276392161173,6.25267505645752,success,Small feed-forward neural network from nnet.
